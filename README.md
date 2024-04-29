@@ -1,8 +1,4 @@
-![](https://i.imgur.com/xG74tOh.png)
-
-# Exercício 01
-
-## Cadastro de alunos
+# Exercício - Cadastro de alunos 
 
 Neste exercício será necessário criar uma API REST para realização de cadastro de alunos, mas para satisfazer a demanda, será necessário contemplar alguns requisitos e regras obrigatórios.
 
