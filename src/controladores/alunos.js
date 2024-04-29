@@ -59,11 +59,32 @@ const adicionarAluno = (req, res) => {
     idProximoAlunoCriado++;
 
     return res.status(201).send();
+}
+
+const excluirAluno = (req, res) => {
+    const idRequisicao = Number(req.params.id);
+
+    if (isNaN(idRequisicao)) {
+        return res.status(400).json({ mensagem: 'O Id informado não é um número válido.'});
+    }
+
+    const indiceAlunoExclusao = alunos.findIndex((aluno) => {
+        return aluno.id === idRequisicao;
+    });
+
+    if (indiceAlunoExclusao < 0) {
+        return res.status(404).json({ mensagem: 'Aluno não encontrado.'});
+    }
+
+const alunoExcluido = alunos.splice(indiceAlunoExclusao, 1)[0];
+
+return res.json(alunoExcluido);
 
 }
 
 module.exports = {
     obterAlunos,
     alunoPorId,
-    adicionarAluno
+    adicionarAluno,
+    excluirAluno
 }
